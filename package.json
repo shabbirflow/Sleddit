@@ -68,8 +68,10 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^10.5.1",
     "@types/editorjs__header": "^2.6.0",
     "@types/lodash.debounce": "^4.0.7",
-    "prisma": "^5.2.0"
+    "prisma": "^5.2.0",
+    "prisma-erd-generator": "^1.11.1"
   }
 }

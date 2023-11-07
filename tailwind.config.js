@@ -22,6 +22,7 @@ module.exports = {
       lightWhite: '#E3F4F4',
       idk: "#ECF2FF",
       appBG: '#F9F9F9',
+      dropDownBG: '#6499E9',
       ...colors
     },
     extend: {

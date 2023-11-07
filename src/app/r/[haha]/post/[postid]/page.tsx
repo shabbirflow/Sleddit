@@ -21,26 +21,18 @@ const page = async ({ params }: pageProps) => {
     include: { author: true },
   });
   if (!post) return notFound();
-  console.log(post);
-  // return (
-  //   <div className="p-4 bg-lightWhite rounded-2xl shadow-sm">
-  //     <h1 className="text-xl font-bold p-2">{post.title}</h1>
-  //     <br className="border border-red"/>
-  //     <EditorOutput content={post.content} />
-  //   </div>
-  // );
 
   return (
     <div className="flex flex-col gap-3 bg-lightWhite shadow-lg rounded-lg min-w-fit">
       <div className="w-full flex justify-between align-middle ">
-      <div>
-        <User2Icon />
-        
-          <div className="flex items-center justify-between w-full bg-black">
+        <div>
+          <User2Icon />
+
+          <div className="flex items-center justify-between w-full ">
             <h2 className="text-lg font-semibold text-gray-900 -mt-1">
-              {post.author.name}
+              {post.author.name}{" "}
             </h2>
-            <small className="text-sm text-gray-700">
+            <small className="text-sm text-gray-700 m-2">
               {formatTimeToNow(new Date(post.createdAt))}
             </small>
           </div>
@@ -105,3 +97,45 @@ const page = async ({ params }: pageProps) => {
 };
 
 export default page;
+
+<div className="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div className="w-full max-w-xl bg-white shadow-md rounded-md p-4">
+    <div className="text-center mb-4">
+      <h1 className="text-2xl font-bold">Sample Reddit Post Title</h1>
+      <p className="text-gray-600">
+        Posted by <span className="font-semibold">Username</span> 2 hours ago
+      </p>
+    </div>
+
+    <div className="mb-4">
+      <p className="text-lg">
+        This is the content of the Reddit post. It can contain text, images, or
+        other media.
+      </p>
+    </div>
+
+    <div className="flex justify-between items-center border-t border-gray-300 pt-2">
+      <div className="flex items-center space-x-2">
+        <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 focus:outline-none">
+          Upvote
+        </button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">
+          Downvote
+        </button>
+      </div>
+      <div className="text-gray-600">Comments: 10</div>
+    </div>
+
+    <div className="mt-4 space-y-4">
+      <div className="bg-white shadow-md p-4 rounded">
+        <div className="font-semibold">Commenter1</div>
+        <div>This is a comment on the post.</div>
+      </div>
+      <div className="bg-white shadow-md p-4 rounded">
+        <div className="font-semibold">Commenter2</div>
+        <div>Another comment on the post.</div>
+      </div>
+      {/* More comments can go here */}
+    </div>
+  </div>
+</div>;

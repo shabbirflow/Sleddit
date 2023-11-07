@@ -4,17 +4,17 @@ import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 import { getAuthSession } from "./api/auth/[...nextauth]/route";
 import GeneralFeed from "@/components/GeneralFeed";
+import CustomFeed from "@/components/CustomFeed";
 
 export default async function Home() {
-
-  const session = getAuthSession();
+  const session = await getAuthSession();
 
   return (
     <>
       <h1 className="text-3xl font-bold md:text-4xl">Your feed</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
         {/* @ts-expect-error server component */}
-        <GeneralFeed />
+        {session && session.user ? <CustomFeed /> : <GeneralFeed />}
         {/* subreddit info */}
         <div className="overflow-hidden h-fit rounded-lg border border-gray-300 order-first md:order-last">
           <div className="bg-emerald-100 px-4 py-4">
@@ -29,12 +29,11 @@ export default async function Home() {
             </div>
           </div>
 
-          <Link href="/r/create" className="m-x-2 m-y-2 w-full justify-center flex">
-            <Button
-              className="w-11/12 my-2"
-            >
-              Create Community
-            </Button>
+          <Link
+            href="/r/create"
+            className="m-x-2 m-y-2 w-full justify-center flex"
+          >
+            <Button className="w-11/12 my-2">Create Community</Button>
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { FC } from "react";
 import PostFeed from "./PostFeed";
 
 const GeneralFeed = async ({}) => {
+  console.log("GENERAL FEED");
   const posts = await db.post.findMany({
     orderBy: {
       createdAt: "desc",

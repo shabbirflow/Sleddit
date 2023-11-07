@@ -13,9 +13,10 @@ import { Icons } from "./Icons";
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
   subredditName?: string;
+  userId?: string;
 }
 
-const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
+const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName, userId }) => {
   const lastPostRef = useRef<HTMLDivElement>(null);
   const [noPosts, setNoPosts] = useState<boolean>(false);
   // console.log(initialPosts);
@@ -33,7 +34,8 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
       // Query function to fetch data
       const query =
         `/api/posts?limit=${stuff.INF_SCROLLING_PAGINATION_AMOUNT}&page=${pageParam}` +
-        (!!subredditName ? `&subredditName=${subredditName}` : "");
+        (!!subredditName ? `&subredditName=${subredditName}` : "") +
+        (!!userId ? `&userId=${userId}` : "");
       // Use !! to convert a value into a boolean (true or false)
       const { data } = await axios.get(query);
       // console.log("AXIOS QUERY DATA: ", data);
@@ -65,20 +67,22 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
   //   console.log(document.body.scrollHeight)
   // }, [isFetchingNextPage])
 
-  if (!session || !session.user)
-    return (
-      <div>
-        <h1>Loading...</h1>
-        <h5>Waiting for session</h5>
-      </div>
-    );
+  // if (!session || !session.user)
+  //   return (
+  //     <div>
+  //       <h1>Loading...</h1>
+  //       <h5>Waiting for session</h5>
+  //     </div>
+  //   );
 
   if (!initialPosts.length || noPosts)
-    return <div className="bg-lightWhite w-full flex flex-row justify-center align-middle items-center p-3">
-      <h3 className="font-bold p-5">No posts yet...</h3>
-      <Icons.bombIcon color="brown" size={24} />
-      {/* <p className="p-5">Much Empty</p> */}
-    </div>;
+    return (
+      <div className="bg-lightWhite w-full flex flex-row justify-center align-middle items-center p-3">
+        <h3 className="font-bold p-5">No posts yet...</h3>
+        <Icons.bombIcon color="brown" size={24} />
+        {/* <p className="p-5">Much Empty</p> */}
+      </div>
+    );
 
   return (
     <ul className="flex flex-col col-span-2 space-y-6">

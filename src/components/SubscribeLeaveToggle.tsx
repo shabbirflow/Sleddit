@@ -124,7 +124,7 @@ const SubscribeLeaveToggle: FC<SubscribeLeaveToggleProps> = ({
       }}
       isLoading={isLoading}
     >
-      Join to Post
+      Join Community
     </Button>
   );
 };

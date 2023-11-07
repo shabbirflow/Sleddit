@@ -4,7 +4,7 @@
 A Fullstack Reddit Clone
 
 
-To run this code, Make a `.env` file in top level directory and paste this:
+To run this code, clone the repository. Make a `.env` file in top level directory and paste this:
 
 ```
 DATABASE_URL=mysql://du7ywn1vgnnprsyr8krj:pscale_pw_Ykd6PPIaxxqrJSDNuM7OcsFFFvSXAT0aSN8tKOKv8Fw@aws.connect.psdb.cloud/sleddit?sslaccept=strict

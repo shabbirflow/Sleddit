@@ -12,11 +12,11 @@ import { toast } from "@/hooks/use-toast";
 
 interface pageProps {}
 
-const page: FC<pageProps> = ({}) => {
+const Page = ({}) => {
   const [input, setInput] = useState<string>("");
   const router = useRouter();
 
-  const { mutate, isLoading, isError } = useMutation({
+  const { mutate, isLoading } = useMutation({
     mutationFn: async () => {
       const payload: createSubRedPayload = {
         name: input,
@@ -104,4 +104,4 @@ const page: FC<pageProps> = ({}) => {
   );
 };
 
-export default page;
+export default Page;

@@ -5,7 +5,7 @@ import PostFeed from "../Post/PostFeed";
 import { getAuthSession } from "@/app/api/auth/[...nextauth]/route";
 
 const CustomFeed = async ({}) => {
-  console.log("CUSTOM FEED");
+  // console.log("CUSTOM FEED");
   const session = await getAuthSession();
 
   if (!session?.user) return <></>;
@@ -41,16 +41,16 @@ const CustomFeed = async ({}) => {
     },
   });
 
-  // console.log(
-  //   "CUSTOM FEED",
-  //   posts.map((post) => post.subreddit.name)
-  // );
+  if (!subscribedSubs.length)
+    return (
+      <div className="bg-lightWhite col-span-2 flex flex-col justify-center items-center">
+        <h3 className="font-bold text-center">{stuff.noPosts}</h3>
+        <p>{stuff.emptyHomeLine}</p>
+        {/* <p className="p-5">Much Empty</p> */}
+      </div>
+    );
 
-  // console.log(posts);
-
-  return (
-      <PostFeed initialPosts={posts} userId = {session.user.id}/>
-  );
+  return <PostFeed initialPosts={posts} userId={session.user.id} />;
 };
 
 export default CustomFeed;

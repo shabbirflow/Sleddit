@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { stuff } from "../../constants/constants";
 import Link from "next/link";
-import UserAuthForm from "../UserAuthForm";
+import UserAuthForm from "./UserAuthForm";
 interface SignupProps {}
 
 const SignUp: FC<SignupProps> = ({}) => {

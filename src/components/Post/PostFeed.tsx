@@ -16,11 +16,14 @@ interface PostFeedProps {
   userId?: string;
 }
 
-const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName, userId }) => {
+const PostFeed: FC<PostFeedProps> = ({
+  initialPosts,
+  subredditName,
+  userId,
+}) => {
   const lastPostRef = useRef<HTMLDivElement>(null);
   const [noPosts, setNoPosts] = useState<boolean>(false);
   // console.log(initialPosts);
-
   //to find out when last post is visible, ill load more posts
   const { entry, ref } = useIntersection({
     root: lastPostRef.current,
@@ -54,8 +57,10 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName, userId }) =>
   );
 
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts; //render initialPosts if posts does not exist
-
+  
   useEffect(() => {
+    if(initialPosts.length === 0) return;
+    // console.log("SHOULDNT REACH HERE");
     // entry?.isIntersecting
     //   ? console.log("INTERSECTING")
     //   : console.log("OBSCURED");
@@ -64,10 +69,10 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName, userId }) =>
 
   if (!initialPosts.length || noPosts)
     return (
-      <div className="bg-lightWhite w-full flex flex-row justify-center align-middle items-center p-3">
-        <h3 className="font-bold p-5">No posts yet...</h3>
-        <Icons.bombIcon color="brown" size={24} />
-        {/* <p className="p-5">Much Empty</p> */}
+      <div className="col-span-2 flex flex-col justify-center items-center">
+        <h3 className="font-bold p-5">{stuff.noPosts}</h3>
+        <p>{stuff.subredditEmptyLine}</p>
+        <p>{stuff.subredditEmptyLine2}</p>
       </div>
     );
 

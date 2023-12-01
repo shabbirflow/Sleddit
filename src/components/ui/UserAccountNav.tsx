@@ -22,13 +22,13 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div>
-      <div className="text-center">
+    <div className="">
+      <div className="text-center ">
         <button
           id="dropdownDefaultButton"
           data-dropdown-toggle="dropdown"
           className={`bg-emerald-100 hover:bg-bg-emerald-100 focus:ring-4 focus:outline-none shadow-md
-          focus:bg-emerald-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center
+          focus:bg-emerald-100 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center
            dark:dropDownBG dark:hover:dropDownBG dark:focus:dropDownBG ${
              isOpen ? "dropDownBG" : ""
            }`}
@@ -61,9 +61,9 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
 
         {/* Dropdown menu */}
         {isOpen && (
-          <div
+          <div 
             id="dropdown"
-            className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+            className="z-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
           >
             <ul
               className="py-2 text-sm text-gray-700 dark:text-gray-200"

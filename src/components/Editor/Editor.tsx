@@ -10,7 +10,7 @@ import { set } from "date-fns";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { usePathname, useRouter } from "next/navigation";
 
 interface EditorProps {
@@ -142,12 +142,23 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
 
       return data;
     },
-    onError: () => {
-      toast({
-        title: "Could not upload Post",
-        description: "There was some error while uploading post",
-        variant: "destructive",
-      });
+    onError: (err) => {
+      if (err instanceof AxiosError) {
+        const status = err.response?.status;
+        if (status === 400) {
+          toast({
+            title: "Join Subreddit to Post",
+            description: "Please subscribe to this subreddit to post",
+            variant: "destructive",
+          });
+        }
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later",
+          variant: "destructive",
+        });
+      }
     },
     onSuccess: () => {
       const newPathName = pathname.split("/").slice(0, -1).join("/");

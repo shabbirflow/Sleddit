@@ -54,7 +54,7 @@ const Post: FC<PostProps> = ({
                 <span className="px-1">•</span>
               </>
             ) : null}
-            <span>
+            <span className="overflow-hidden">
               Posted by u/{post.author.username}{" "}
               {formatTimeToNow(new Date(post.createdAt))}
             </span>
@@ -69,6 +69,7 @@ const Post: FC<PostProps> = ({
               ref={pRef}
             >
               <EditorOutput content={post.content} />
+              {/* <h1>HAHAHAH</h1> */}
               {pRef.current?.clientHeight === 160 ? (
                 // blur bottom if content is too long
                 <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent"></div>

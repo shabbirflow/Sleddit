@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { NextApiRequest } from "next";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
   // console.log("REACHED ME");
   const url = new URL(req.url as string);
   const params = new URLSearchParams(url.search);

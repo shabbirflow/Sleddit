@@ -3,9 +3,9 @@
 import CustomCodeRenderer from "@/components/renderers/CustomCodeRenderer";
 import CustomImageRenderer from "@/components/renderers/CustomImageRenderer";
 import { FC } from "react";
-import LinkRenderer from "./renderers/LinkRenderer";
+import LinkRenderer from "../renderers/LinkRenderer";
 import { Heading5 } from "lucide-react";
-import TableComponent from "./renderers/TableComponent";
+import TableComponent from "../renderers/TableComponent";
 
 interface EditorOutputProps {
   content: any;

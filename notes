@@ -1,0 +1,6 @@
+PRISMA INITIALIZATION:
+1. delete prisma and node_modules folder
+2. npm i
+3. npx prisma init
+4. npx prisma generate
+5. npx prisma db push

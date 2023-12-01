@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import Signin from "@/components/Signin";
+import Signin from "@/components/sign/Signin";
 import { ChevronLeft } from "lucide-react";
 
 const page: FC = ({}) => {

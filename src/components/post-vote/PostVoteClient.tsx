@@ -1,6 +1,7 @@
+'use client';
 import { Vote, voteType } from "@prisma/client";
 import { FC, useEffect } from "react";
-import { Button } from "./Button";
+import { Button } from "../ui/Button";
 import { ArrowBigDown, ArrowBigUp, Loader } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";

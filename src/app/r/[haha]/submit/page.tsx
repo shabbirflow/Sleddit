@@ -2,7 +2,7 @@ import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import { FC } from "react";
 import { Button } from "@/components/ui/Button";
-import Editor from "@/components/Editor";
+import Editor from "@/components/Editor/Editor";
 
 interface pageProps {
   params: { haha: string };

@@ -22,23 +22,6 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    //         {user.email && (
-    //           <p className='w-[200px] truncate text-sm text-muted-foreground'>
-    //             {user.email}
-
-    //     <DropdownMenuItem
-    //       className='cursor-pointer'
-    //       onSelect={(event) => {
-    //         event.preventDefault()
-    //         signOut({
-    //           callbackUrl: `${window.location.origin}/sign-in`,
-    //         })
-    //       }}>
-    //       Sign out
-    //     </DropdownMenuItem>
-    //   </DropdownMenuContent>
-    //   </DropdownMenu>
-    // </div>
     <div>
       <div className="text-center">
         <button
@@ -47,8 +30,8 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
           className={`bg-emerald-100 hover:bg-bg-emerald-100 focus:ring-4 focus:outline-none shadow-md
           focus:bg-emerald-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center
            dark:dropDownBG dark:hover:dropDownBG dark:focus:dropDownBG ${
-            isOpen ? "dropDownBG" : ""
-          }`}
+             isOpen ? "dropDownBG" : ""
+           }`}
           type="button"
           onClick={() => {
             setIsOpen((prev) => !prev);
@@ -68,10 +51,10 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 4 4 4-4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1 4 4 9 1"
             />
           </svg>
         </button>

@@ -1,7 +1,7 @@
 import { stuff } from "@/constants/constants";
 import { db } from "@/lib/db";
 import { FC } from "react";
-import PostFeed from "./PostFeed";
+import PostFeed from "../Post/PostFeed";
 import { getAuthSession } from "@/app/api/auth/[...nextauth]/route";
 
 const CustomFeed = async ({}) => {

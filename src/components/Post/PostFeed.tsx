@@ -8,7 +8,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { stuff } from "@/constants/constants";
 import axios from "axios";
 import { Vote } from "@prisma/client";
-import { Icons } from "./Icons";
+import { Icons } from "../ui/Icons";
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
@@ -61,19 +61,6 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName, userId }) =>
     //   : console.log("OBSCURED");
     entry?.isIntersecting ? fetchNextPage() : false;
   }, [entry]);
-
-  // useEffect(() => {
-  //   isFetchingNextPage ? console.log(" I BE FETCHIN") : '';
-  //   console.log(document.body.scrollHeight)
-  // }, [isFetchingNextPage])
-
-  // if (!session || !session.user)
-  //   return (
-  //     <div>
-  //       <h1>Loading...</h1>
-  //       <h5>Waiting for session</h5>
-  //     </div>
-  //   );
 
   if (!initialPosts.length || noPosts)
     return (

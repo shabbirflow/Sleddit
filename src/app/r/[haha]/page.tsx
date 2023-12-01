@@ -1,6 +1,6 @@
 import { getAuthSession } from "@/app/api/auth/[...nextauth]/route";
-import MiniCreatePost from "@/components/MiniCreatePost";
-import PostFeed from "@/components/PostFeed";
+import MiniCreatePost from "@/components/Post/MiniCreatePost";
+import PostFeed from "@/components/Post/PostFeed";
 import { stuff } from "@/constants/constants";
 import { db } from "@/lib/db";
 import { Prisma, PrismaClient } from "@prisma/client";

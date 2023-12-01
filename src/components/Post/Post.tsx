@@ -4,10 +4,10 @@ import { formatTimeToNow } from "@/lib/utils";
 import { useRef } from "react";
 import Link from "next/link";
 import { MessageSquare } from "lucide-react";
-import EditorOutput from "./EditorOutput";
+import EditorOutput from "../Editor/EditorOutput";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
-import PostVoteClient from "./ui/PostVoteClient";
+import PostVoteClient from "../post-vote/PostVoteClient";
 
 interface PostProps {
   subredditName: string;
@@ -64,26 +64,21 @@ const Post: FC<PostProps> = ({
               {post.title}
             </h1>
           </a>
-          <div
-            className="relative text-sm max-h-40 w-full overflow-hidden"
-            ref={pRef}
-          >
-            <EditorOutput content={post.content} />
-            {pRef.current?.clientHeight === 160 ? (
-              // blur bottom if content is too long
-              <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent"></div>
-            ) : null}
-          </div>
+            <div
+              className="relative text-sm max-h-40 w-full overflow-hidden"
+              ref={pRef}
+            >
+              <EditorOutput content={post.content} />
+              {pRef.current?.clientHeight === 160 ? (
+                // blur bottom if content is too long
+                <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent"></div>
+              ) : null}
+            </div>
         </div>
       </div>
 
       <div className="bg-gray-50 z-20 text-sm px-4 py-4 sm:px-6 flex flex-row justify-between">
-        <Link
-          href={`/r/${subredditName}/post/${post.id}`}
-          className="w-fit flex items-center gap-2"
-        >
-          <MessageSquare className="h-4 w-4" /> {commentAmt} comments
-        </Link>
+        <MessageSquare className="h-4 w-4" /> {commentAmt} comments
       </div>
     </div>
   );

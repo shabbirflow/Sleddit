@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import { Icons } from "./Icons";
+import { Icons } from "./ui/Icons";
 import { getAuthSession } from "@/app/api/auth/[...nextauth]/route";
 import UserAccountNav from "./ui/UserAccountNav";
 import { Camera } from 'lucide-react';
+import Image from "next/image";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -13,7 +14,8 @@ const Navbar = async () => {
     <div className="fixed top-0 inset-x-0 h-fit bg-lightWhite border-zinc-300 z-[10] py-2">
       <div className="container max-w-7xl flex justify-between items-center h-full mx-auto gap-2">
         <Link className="flex gap-2 items-center" href="/">
-          <Icons.logo className="h-15 w-15 sm:h-6 sm:w-6" />
+          {/* <Image className="h-15 w-15 sm:h-6 sm:w-6" link/> */}
+          <Image src = '/turtle.png' alt = 'sleddit turtle logo' width={50} height={50} />
           {/* <Camera color="red" size={48} /> */}
           <p className="hidden text-zinc-700 text-sm font-medium md:block">
             Sleddit

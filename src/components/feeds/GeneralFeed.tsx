@@ -1,7 +1,7 @@
 import { stuff } from "@/constants/constants";
 import { db } from "@/lib/db";
 import { FC } from "react";
-import PostFeed from "./PostFeed";
+import PostFeed from "../Post/PostFeed";
 
 const GeneralFeed = async ({}) => {
   console.log("GENERAL FEED");

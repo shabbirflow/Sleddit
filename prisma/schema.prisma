@@ -2,14 +2,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator erd {
-  provider = "prisma-erd-generator"
-}
+// generator erd {
+//   provider = "prisma-erd-generator"
+// }
 
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
-  // shadowDatabaseUrl = env("SHADOW_URL")
+  // shadowDatabaseUrl = env("SHADOW_URL")gitc
   relationMode = "prisma"
 }
 

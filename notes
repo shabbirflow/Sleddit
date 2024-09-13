@@ -4,3 +4,6 @@ PRISMA INITIALIZATION:
 3. npx prisma init
 4. npx prisma generate
 5. npx prisma db push
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema

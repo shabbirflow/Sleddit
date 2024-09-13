@@ -53,6 +53,7 @@
     "next": "13.4.4",
     "next-auth": "^4.22.1",
     "postcss": "8.4.23",
+    "puppeteer": "^22.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
@@ -68,10 +69,10 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@mermaid-js/mermaid-cli": "^10.5.1",
+    "@mermaid-js/mermaid-cli": "^10.9.1",
     "@types/editorjs__header": "^2.6.0",
     "@types/lodash.debounce": "^4.0.7",
     "prisma": "^5.2.0",
-    "prisma-erd-generator": "^1.11.1"
+    "prisma-erd-generator": "^1.11.2"
   }
 }
